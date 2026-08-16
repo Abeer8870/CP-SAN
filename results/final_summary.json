@@ -1,0 +1,34 @@
+{
+  "attack_scenarios": 116,
+  "legitimate_scenarios": 100,
+  "ablation": {
+    "no_defense": 100.0,
+    "pattern_only": 37.9,
+    "llm_only": 13.8,
+    "cpsan_full": 7.8
+  },
+  "category_breakdown": {
+    "Exfiltration": {
+      "total": 25,
+      "asr": 20.0
+    },
+    "Lateral Movement": {
+      "total": 25,
+      "asr": 0.0
+    },
+    "Persistence": {
+      "total": 20,
+      "asr": 0.0
+    },
+    "Privilege Escalation": {
+      "total": 22,
+      "asr": 4.5
+    },
+    "Semantic Deception": {
+      "total": 24,
+      "asr": 12.5
+    }
+  },
+  "task_completion_rate": 99.0,
+  "false_positive_rate": 1.0
+}

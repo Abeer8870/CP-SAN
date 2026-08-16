@@ -1,0 +1,160 @@
+After updating tool registry:
+Running ablation study on 116 scenarios...
+============================================================
+
+Running: No Defense...
+
+--- No Defense ---
+Category                   Total  Caught     ASR
+Exfiltration                  25       0  100.0%
+Lateral Movement              25       0  100.0%
+Persistence                   20       0  100.0%
+Privilege Escalation          22       0  100.0%
+Semantic Deception            24       0  100.0%
+
+Running: Pattern Only...
+
+--- Pattern Only ---
+Category                   Total  Caught     ASR
+Exfiltration                  25      18   28.0%
+Lateral Movement              25      12   52.0%
+Persistence                   20      17   15.0%
+Privilege Escalation          22      16   27.3%
+Semantic Deception            24       9   62.5%
+
+Running: LLM Only...
+
+--- LLM Only ---
+Category                   Total  Caught     ASR
+Exfiltration                  25      11   56.0%
+Lateral Movement              25      20   20.0%
+Persistence                   20      20    0.0%
+Privilege Escalation          22      18   18.2%
+Semantic Deception            24      19   20.8%
+
+Running: CP-SAN (Full)...
+
+--- CP-SAN (Full) ---
+Category                   Total  Caught     ASR
+Exfiltration                  25      18   28.0%
+Lateral Movement              25      21   16.0%
+Persistence                   20      20    0.0%
+Privilege Escalation          22      21    4.5%
+Semantic Deception            24      20   16.7%
+
+============================================================
+ABLATION STUDY SUMMARY
+============================================================
+Configuration         Neutralized  ASR After
+============================================================
+No Defense                      0     100.0%
+Pattern Only                   72      37.9%
+LLM Only                       88      24.1%
+CP-SAN (Full)                 100      13.8%
+============================================================
+
+Results saved to results/ablation_results.csv
+
+After updating classifer:
+Running ablation study on 116 scenarios...
+============================================================
+Running: No Defense...
+--- No Defense ---
+Category                   Total  Caught     ASR
+Exfiltration                  25       0  100.0%
+Lateral Movement              25       0  100.0%
+Persistence                   20       0  100.0%
+Privilege Escalation          22       0  100.0%
+Semantic Deception            24       0  100.0%
+Running: Pattern Only...
+--- Pattern Only ---
+Category                   Total  Caught     ASR
+Exfiltration                  25      18   28.0%
+Lateral Movement              25      12   52.0%
+Persistence                   20      17   15.0%
+Privilege Escalation          22      16   27.3%
+Semantic Deception            24       9   62.5%
+Running: LLM Only...
+--- LLM Only ---
+Category                   Total  Caught     ASR
+Exfiltration                  25      14   44.0%
+Lateral Movement              25      25    0.0%
+Persistence                   20      20    0.0%
+Privilege Escalation          22      21    4.5%
+Semantic Deception            24      20   16.7%
+Running: CP-SAN (Full)...
+--- CP-SAN (Full) ---
+Category                   Total  Caught     ASR
+Exfiltration                  25      20   20.0%
+Lateral Movement              25      25    0.0%
+Persistence                   20      20    0.0%
+Privilege Escalation          22      21    4.5%
+Semantic Deception            24      21   12.5%
+============================================================
+ABLATION STUDY SUMMARY
+============================================================
+Configuration         Neutralized  ASR After
+============================================================
+No Defense                      0     100.0%
+Pattern Only                   72      37.9%
+LLM Only                      100      13.8%
+CP-SAN (Full)                 107       7.8%
+============================================================
+Results saved to results/ablation_results.csv
+PS C:\Users\Lenovo\Desktop\cpscan>  
+
+Running ablation study on 116 scenarios...
+============================================================
+
+Running: No Defense...
+
+--- No Defense ---
+Category                   Total  Caught     ASR
+Exfiltration                  25       0  100.0%
+Lateral Movement              25       0  100.0%
+Persistence                   20       0  100.0%
+Privilege Escalation          22       0  100.0%
+Semantic Deception            24       0  100.0%
+
+Running: Pattern Only...
+
+--- Pattern Only ---
+Category                   Total  Caught     ASR
+Exfiltration                  25      18   28.0%
+Lateral Movement              25      12   52.0%
+Persistence                   20      17   15.0%
+Privilege Escalation          22      16   27.3%
+Semantic Deception            24       9   62.5%
+
+Running: LLM Only...
+
+--- LLM Only ---
+Category                   Total  Caught     ASR
+Exfiltration                  25      14   44.0%
+Lateral Movement              25      25    0.0%
+Persistence                   20      20    0.0%
+Privilege Escalation          22      21    4.5%
+Semantic Deception            24      20   16.7%
+
+Running: CP-SAN (Full)...
+
+--- CP-SAN (Full) ---
+Category                   Total  Caught     ASR
+Exfiltration                  25      20   20.0%
+Lateral Movement              25      25    0.0%
+Persistence                   20      20    0.0%
+Privilege Escalation          22      21    4.5%
+Semantic Deception            24      21   12.5%
+
+============================================================
+ABLATION STUDY SUMMARY
+============================================================
+Configuration         Neutralized  ASR After
+============================================================
+No Defense                      0     100.0%
+Pattern Only                   72      37.9%
+LLM Only                      100      13.8%
+CP-SAN (Full)                 107       7.8%
+============================================================
+
+Results saved to results/ablation_results.csv
