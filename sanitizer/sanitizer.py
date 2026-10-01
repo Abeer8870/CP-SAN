@@ -104,10 +104,6 @@ class CPSan:
             f.write(json.dumps(entry) + "\n")
 
     def _check_tool_context(self, tool_name, user_task):
-        """
-        Checks whether the tool being called makes sense
-        for the user's stated task at all.
-        """
         prompt = f"""You are a security classifier for an AI agent.
 
 The user asked: "{user_task}"
@@ -120,11 +116,18 @@ YES = this tool makes sense for the task
 NO = this tool seems unrelated or suspicious for the task"""
 
         try:
-            from sanitizer.classifier import model
-            response = model.generate_content(prompt)
-            answer = response.text.strip().upper()
+            from sanitizer.classifier import client as model, MODEL
+            response = model.chat.completions.create(
+            model=MODEL,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=100,
+            temperature=0,
+            reasoning_effort="low",
+            reasoning_format="hidden"
+        )
+            answer = response.choices[0].message.content.strip().upper()
             import time
-            time.sleep(4)
+            time.sleep(2)
             return answer.startswith("YES")
         except Exception:
             return True  # fail open

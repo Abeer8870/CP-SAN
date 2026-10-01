@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 import os
 client = Groq(api_key=os.environ["GROQ_API_KEY"])
+MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
 
 def check_scope(tool_name, param_name, param_value,
                 declared_scope, user_task):
@@ -45,11 +46,14 @@ NO = parameter raises security concerns"""
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model=MODEL,
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=10,
-            temperature=0
+            max_tokens=200,              # generous room for hidden reasoning + short answer
+            temperature=0,
+            reasoning_effort="low",      # fastest reasoning tier available for GPT-OSS
+            reasoning_format="hidden"    # suppress the reasoning trace, return only the final answer
         )
+        
         answer = response.choices[0].message.content.strip().upper()
         time.sleep(2)
 

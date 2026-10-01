@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = Groq(api_key=os.environ["GROQ_API_KEY"])
+MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
 
 SAFE_DEFAULTS = {
     "read_file": {"path": "./user_document.txt"},
@@ -38,10 +39,12 @@ If no safe rewrite is possible, return exactly: SAFE_DEFAULT"""
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model=MODEL,
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=50,
-            temperature=0
+            max_tokens=200,              # generous room for hidden reasoning + short answer
+            temperature=0,
+            reasoning_effort="low",      # fastest reasoning tier available for GPT-OSS
+            reasoning_format="hidden"    # suppress the reasoning trace, return only the final answer
         )
         rewritten = response.choices[0].message.content.strip()
 

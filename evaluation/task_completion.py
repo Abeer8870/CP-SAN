@@ -160,7 +160,6 @@ if __name__ == "__main__":
     print(f"\n{'='*60}")
     print("FINAL METRICS SUMMARY")
     print(f"{'='*60}")
-    print(f"Attack Success Rate (CP-SAN):  7.8%")
     print(f"Task Completion Rate:          {tcr}%")
     print(f"False Positive Rate:           {fpr}%")
     print(f"{'='*60}")
